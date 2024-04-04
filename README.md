@@ -1,6 +1,6 @@
 # Machine-Learning
 ### Machine Learning using Python 
-파이썬을 사용한 기계학습
+파이썬을 사용한 기계학습 (Python 3.8.10)
 <br/><br/>
 
 ## 실행을 위해 필요한 주요 패키지 <br/>
