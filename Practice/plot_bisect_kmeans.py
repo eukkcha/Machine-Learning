@@ -1,88 +1,63 @@
 """
-=========================================================
-K-means Clustering
-=========================================================
+=============================================================
+Bisecting K-Means and Regular K-Means Performance Comparison
+=============================================================
 
-The plot shows:
+This example shows differences between Regular K-Means algorithm and Bisecting K-Means.
 
-- top left: What a K-means algorithm would yield using 8 clusters.
+While K-Means clusterings are different when with increasing n_clusters,
+Bisecting K-Means clustering build on top of the previous ones.
 
-- top right: What using three clusters would deliver.
-
-- bottom left: What the effect of a bad initialization is
-  on the classification process: By setting n_init to only 1
-  (default is 10), the amount of times that the algorithm will
-  be run with different centroid seeds is reduced.
-
-- bottom right: The ground truth.
+This difference can visually be observed.
 
 """
-
-# Code source: Gaël Varoquaux
-# Modified for documentation by Jaques Grobler
-# License: BSD 3 clause
-
 import matplotlib.pyplot as plt
 
-# Though the following import is not directly being used, it is required
-# for 3D projection to work with matplotlib < 3.2
-import mpl_toolkits.mplot3d  # noqa: F401
-import numpy as np
+from sklearn.datasets import make_blobs
+from sklearn.cluster import BisectingKMeans, KMeans
 
-from sklearn import datasets
-from sklearn.cluster import KMeans
 
-np.random.seed(5)
+print(__doc__)
 
-iris = datasets.load_iris()
-X = iris.data
-y = iris.target
 
-estimators = [
-    ("k_means_iris_8", KMeans(n_clusters=8)),
-    ("k_means_iris_3", KMeans(n_clusters=3)),
-    ("k_means_iris_bad_init", KMeans(n_clusters=3, n_init=1, init="random")),
-]
+# Generate sample data
+n_samples = 1000
+random_state = 0
 
-fig = plt.figure(figsize=(10, 8))
-titles = ["8 clusters", "3 clusters", "3 clusters, bad initialization"]
-for idx, ((name, est), title) in enumerate(zip(estimators, titles)):
-    ax = fig.add_subplot(2, 2, idx + 1, projection="3d", elev=48, azim=134)
-    est.fit(X)
-    labels = est.labels_
+X, _ = make_blobs(n_samples=n_samples, centers=2, random_state=random_state)
 
-    ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=labels.astype(float), edgecolor="k")
+# Number of cluster centers for KMeans and BisectingKMeans
+n_clusters_list = [2, 3, 4, 5]
 
-    ax.xaxis.set_ticklabels([])
-    ax.yaxis.set_ticklabels([])
-    ax.zaxis.set_ticklabels([])
-    ax.set_xlabel("Petal width")
-    ax.set_ylabel("Sepal length")
-    ax.set_zlabel("Petal length")
-    ax.set_title(title)
+# Algorithms to compare
+clustering_algorithms = {
+    "Bisecting K-Means": BisectingKMeans,
+    "K-Means": KMeans,
+}
 
-# Plot the ground truth
-ax = fig.add_subplot(2, 2, 4, projection="3d", elev=48, azim=134)
+# Make subplots for each variant
+fig, axs = plt.subplots(
+    len(clustering_algorithms), len(n_clusters_list), figsize=(15, 5)
+)
 
-for name, label in [("Setosa", 0), ("Versicolour", 1), ("Virginica", 2)]:
-    ax.text3D(
-        X[y == label, 3].mean(),
-        X[y == label, 0].mean(),
-        X[y == label, 2].mean() + 2,
-        name,
-        horizontalalignment="center",
-        bbox=dict(alpha=0.2, edgecolor="w", facecolor="w"),
-    )
+axs = axs.T
 
-ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=y, edgecolor="k")
+for i, (algorithm_name, Algorithm) in enumerate(clustering_algorithms.items()):
+    for j, n_clusters in enumerate(n_clusters_list):
+        algo = Algorithm(n_clusters=n_clusters, random_state=random_state)
+        algo.fit(X)
+        centers = algo.cluster_centers_
 
-ax.xaxis.set_ticklabels([])
-ax.yaxis.set_ticklabels([])
-ax.zaxis.set_ticklabels([])
-ax.set_xlabel("Petal width")
-ax.set_ylabel("Sepal length")
-ax.set_zlabel("Petal length")
-ax.set_title("Ground Truth")
+        axs[j, i].scatter(X[:, 0], X[:, 1], s=10, c=algo.labels_)
+        axs[j, i].scatter(centers[:, 0], centers[:, 1], c="r", s=20)
 
-plt.subplots_adjust(wspace=0.25, hspace=0.25)
+        axs[j, i].set_title(f"{algorithm_name} : {n_clusters} clusters")
+
+
+# Hide x labels and tick labels for top plots and y ticks for right plots.
+for ax in axs.flat:
+    ax.label_outer()
+    ax.set_xticks([])
+    ax.set_yticks([])
+
 plt.show()
