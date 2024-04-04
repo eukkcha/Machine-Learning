@@ -86,4 +86,3 @@ ax.set_title("Ground Truth")
 
 plt.subplots_adjust(wspace=0.25, hspace=0.25)
 plt.show()
-
