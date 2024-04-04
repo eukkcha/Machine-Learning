@@ -1,40 +1,88 @@
-from sklearn.datasets import make_blobs
-import pandas as pd
-import numpy as np
-import math
-import scipy as sp
-import seaborn as sns
+"""
+=========================================================
+K-means Clustering
+=========================================================
+
+The plot shows:
+
+- top left: What a K-means algorithm would yield using 8 clusters.
+
+- top right: What using three clusters would deliver.
+
+- bottom left: What the effect of a bad initialization is
+  on the classification process: By setting n_init to only 1
+  (default is 10), the amount of times that the algorithm will
+  be run with different centroid seeds is reduced.
+
+- bottom right: The ground truth.
+
+"""
+
+# Code source: Gaël Varoquaux
+# Modified for documentation by Jaques Grobler
+# License: BSD 3 clause
+
 import matplotlib.pyplot as plt
 
-sns.set_palette("Set2")
+# Though the following import is not directly being used, it is required
+# for 3D projection to work with matplotlib < 3.2
+import mpl_toolkits.mplot3d  # noqa: F401
+import numpy as np
 
-x, y = make_blobs(n_samples=100, centers=4, n_features=2, random_state=6)
-points = pd.DataFrame(x, y).reset_index(drop=True)
-points.columns = ["x", "y"]
-points.head()
-print(points)
+from sklearn import datasets
+from sklearn.cluster import KMeans
 
-plt.figure()
-plt.subplot(211)
-sns.scatterplot(x="x", y="y", data=points, palette="Set2");
+np.random.seed(5)
 
+iris = datasets.load_iris()
+X = iris.data
+y = iris.target
 
+estimators = [
+    ("k_means_iris_8", KMeans(n_clusters=8)),
+    ("k_means_iris_3", KMeans(n_clusters=3)),
+    ("k_means_iris_bad_init", KMeans(n_clusters=3, n_init=1, init="random")),
+]
 
-from sklearn.cluster import KMeans 
+fig = plt.figure(figsize=(10, 8))
+titles = ["8 clusters", "3 clusters", "3 clusters, bad initialization"]
+for idx, ((name, est), title) in enumerate(zip(estimators, titles)):
+    ax = fig.add_subplot(2, 2, idx + 1, projection="3d", elev=48, azim=134)
+    est.fit(X)
+    labels = est.labels_
 
-# k-means clustering 실행
-kmeans = KMeans(n_clusters=4)
-kmeans.fit(points)
+    ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=labels.astype(float), edgecolor="k")
 
-# 결과 확인
+    ax.xaxis.set_ticklabels([])
+    ax.yaxis.set_ticklabels([])
+    ax.zaxis.set_ticklabels([])
+    ax.set_xlabel("Petal width")
+    ax.set_ylabel("Sepal length")
+    ax.set_zlabel("Petal length")
+    ax.set_title(title)
 
+# Plot the ground truth
+ax = fig.add_subplot(2, 2, 4, projection="3d", elev=48, azim=134)
 
+for name, label in [("Setosa", 0), ("Versicolour", 1), ("Virginica", 2)]:
+    ax.text3D(
+        X[y == label, 3].mean(),
+        X[y == label, 0].mean(),
+        X[y == label, 2].mean() + 2,
+        name,
+        horizontalalignment="center",
+        bbox=dict(alpha=0.2, edgecolor="w", facecolor="w"),
+    )
 
-result_by_sklearn = points.copy()
-result_by_sklearn["cluster"] = kmeans.labels_
-result_by_sklearn.head()
+ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=y, edgecolor="k")
 
-plt.subplot(212)
-sns.scatterplot(x="x", y="y", hue="cluster", data=result_by_sklearn, palette="Set2");
+ax.xaxis.set_ticklabels([])
+ax.yaxis.set_ticklabels([])
+ax.zaxis.set_ticklabels([])
+ax.set_xlabel("Petal width")
+ax.set_ylabel("Sepal length")
+ax.set_zlabel("Petal length")
+ax.set_title("Ground Truth")
+
+plt.subplots_adjust(wspace=0.25, hspace=0.25)
 plt.show()
-
