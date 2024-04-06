@@ -28,9 +28,10 @@
 2. "pip install (파일명)==x.xx.x" 원하는 버전 입력해서 설치 <br/>
 3. "pip show (파일명)" 입력하여 잘 설치되었는지 확인 <br/>
 
-- 명령어가 안먹히면 pip 대신 pip3 입력 <br/>
-- 그래도 안되면 파이썬이 제대로 설치되어있는지 확인 <br/>
-- 해당 버전이 존재하지 않는다하면 (파일명)까지만 입력하여 설치 <br/>
-- ex)pip install librosa==0.8.1 <br/>
-- ex)pip3 install librosa==0.8.1 <br/>
-- ex)pip install librosa <br/>
+- 명령어가 안되면 pip 대신 pip3 입력 <br/>
+- 그래도 안되면 파이썬 설치 여부 확인 <br/>
+- 해당 버전이 존재하지 않는다고 뜨면 (파일명)까지만 입력 <br/>
+
+ex) pip3 install librosa==0.8.1 <br/>
+ex) pip install librosa==0.8.1 <br/>
+ex) pip install librosa <br/>
