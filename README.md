@@ -35,3 +35,4 @@
 ex) pip3 install librosa==0.8.1 <br/>
 ex) pip install librosa==0.8.1 <br/>
 ex) pip install librosa <br/>
+(맥OS에서는 구동 실패함)
