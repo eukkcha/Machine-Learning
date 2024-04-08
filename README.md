@@ -30,9 +30,13 @@
 
 - 명령어가 안되면 pip 대신 pip3 입력 <br/>
 - 그래도 안되면 파이썬 설치 여부 확인 <br/>
+- 그래도 안되면 https://puleugo.tistory.com/18 참고
 - 해당 버전이 존재하지 않는다고 뜨면 (파일명)까지만 입력 <br/>
 
 ex) pip3 install librosa==0.8.1 <br/>
 ex) pip install librosa==0.8.1 <br/>
 ex) pip install librosa <br/>
-(맥OS에서는 구동 실패함)
+
+맥OS에서 구동 실패 시, 패키지 최신 버전 다운
+ex) pip install numba --upgrade
+ex) pip install matplotlib --upgrade
