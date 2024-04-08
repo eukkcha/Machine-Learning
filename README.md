@@ -37,6 +37,6 @@ ex) pip3 install librosa==0.8.1 <br/>
 ex) pip install librosa==0.8.1 <br/>
 ex) pip install librosa <br/>
 
-맥OS에서 구동 실패 시, 패키지 최신 버전 다운
-ex) pip install numba --upgrade
-ex) pip install matplotlib --upgrade
+맥OS에서 구동 실패 시, 패키지 최신 버전 다운 <br/>
+ex) pip install numba --upgrade <br/>
+ex) pip install matplotlib --upgrade <br/>
