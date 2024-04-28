@@ -4,6 +4,7 @@
 <br/><br/>
 
 ## 실행을 위해 필요한 주요 패키지 <br/>
+해당 버전이 없거나 오류 발생 시 다른 버전, 최신 버전 사용하기
 |패키지|버전|
 |:-|:-|
 |librosa|0.8.1|
@@ -17,9 +18,6 @@
 |seaborn|0.11.2|
 |sklearn|0.0|
 
-다른 버전도 실행될 수도 있음<br/>
-(해당 버전이 없거나 오류가 생길 시 다른 버전 이용)
-
 <br/>
 
 ## 패키지 설치 가이드 <br/>
@@ -28,15 +26,21 @@
 2. "pip install (파일명)==x.xx.x" 원하는 버전 입력해서 설치 <br/>
 3. "pip show (파일명)" 입력하여 잘 설치되었는지 확인 <br/>
 
-- 명령어가 안되면 pip 대신 pip3 입력 <br/>
-- 그래도 안되면 파이썬 설치 여부 확인 <br/>
-- 그래도 안되면 https://puleugo.tistory.com/18 참고
-- 해당 버전이 존재하지 않는다고 뜨면 (파일명)까지만 입력 <br/>
+ex) pip install librosa==0.8.1 <br/>
+ex) pip show librosa <br/>
+
+### pip 명령어가 안되면... 
+1. pip 대신 pip3 사용하기 <br/>
+2. 파이썬 설치 여부 확인하기 <br/>
+3. 환경변수 설정하기 : https://hungdung99.tistory.com/9 <br/>
+4. 오류메세지 No module named 'pip' : https://puleugo.tistory.com/18 <br/>
+5. 해당 버전이 존재하지 않을 때 : pip install (파일명) <br/>
 
 ex) pip3 install librosa==0.8.1 <br/>
-ex) pip install librosa==0.8.1 <br/>
+ex) pip3 install librosa <br/>
 ex) pip install librosa <br/>
 
-맥OS에서 구동 실패 시, 패키지 최신 버전 다운 <br/>
+### 맥OS에서 구동 실패 시, 패키지 최신 버전 다운 <br/>
+
 ex) pip install numba --upgrade <br/>
 ex) pip install matplotlib --upgrade <br/>
