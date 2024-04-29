@@ -5,18 +5,13 @@
 
 ## 실행을 위해 필요한 주요 패키지 <br/>
 해당 버전이 없거나 오류 발생 시 다른 버전, 최신 버전 사용하기
-|패키지|버전|
-|:-|:-|
-|librosa|0.8.1|
-|matplotlib|3.4.3|
-|numba|0.53.1|
-|numpy|1.21.2|
-|pandas|1.3.2|
-|plotly|5.3.1|
-|scikit-learn|1.1.3|
-|scipy|1.7.1|
-|seaborn|0.11.2|
-|sklearn|0.0|
+|패키지|버전|패키지|버전|
+|:-|:-|:-|:-|
+|librosa|0.8.1|plotly|5.3.1|
+|matplotlib|3.4.3|scikit-learn|1.1.3|
+|numba|0.53.1|scipy|1.7.1|
+|numpy|1.21.2|seaborn|0.11.2|
+|pandas|1.3.2|sklearn|0.0|
 
 <br/>
 
