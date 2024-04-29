@@ -28,7 +28,7 @@ pip show librosa <br/>
 - 파이썬 설치 여부 확인하기 <br/>
 - 해당 버전이 존재하지 않을 때 : pip install (파일명) <br/>
 - 환경변수 설정하기 : https://hungdung99.tistory.com/9 <br/>
-- 오류메세지 No module named 'pip' : https://puleugo.tistory.com/18 <br/>
+- 오류메세지 `No module named 'pip'` : https://puleugo.tistory.com/18 <br/>
 ```
 pip3 install librosa==0.8.1 <br/>
 pip3 install librosa <br/>
