@@ -17,8 +17,8 @@
 
 ## 패키지 설치 가이드 <br/>
 ### cmd(명령 프롬프트)창에서...
-- 파일 존재 확인하기 "pip show (파일명)" <br/>
-- 원하는 버전 설치하기 "pip install (파일명)==x.xx.x" <br/>
+- 파일 존재 확인하기 `pip show (파일명)` <br/>
+- 원하는 버전 설치하기 `pip install (파일명)==x.xx.x` <br/>
 ```
 pip install librosa==0.8.1 <br/>
 pip show librosa <br/>
@@ -26,9 +26,9 @@ pip show librosa <br/>
 ### pip 명령어가 안되면... 
 - pip 대신 pip3 사용하기 <br/>
 - 파이썬 설치 여부 확인하기 <br/>
-- 해당 버전이 존재하지 않을 때 : pip install (파일명) <br/>
-- 환경변수 설정하기 : https://hungdung99.tistory.com/9 <br/>
-- 오류메세지 `No module named 'pip'` : https://puleugo.tistory.com/18 <br/>
+- 해당 버전이 존재하지 않을 때 - `pip install (파일명)` <br/>
+- 환경변수 설정하기 - https://hungdung99.tistory.com/9 <br/>
+- 오류메세지 `No module named 'pip'` - https://puleugo.tistory.com/18 <br/>
 ```
 pip3 install librosa==0.8.1 <br/>
 pip3 install librosa <br/>
