@@ -19,7 +19,7 @@
 - 파일 존재 확인 `pip show (파일명)` <br/>
 - 원하는 버전 설치 `pip install (파일명)==x.xx.x` <br/>
 
-(예시) <br/>
+[ 예시 ] <br/>
 `pip show librosa` <br/>
 `pip install librosa==0.8.1` <br/>
 
@@ -30,12 +30,12 @@
 - [환경변수 설정하기](https://hungdung99.tistory.com/9) <br/>
 - [오류메세지 `No module named 'pip'`](https://puleugo.tistory.com/18) <br/>
 
-(예시) <br/>
+[ 예시 ] <br/>
 `pip3 install librosa==0.8.1` <br/>
 `pip3 install librosa` <br/>
 `pip install librosa` <br/>
 
 ### 맥OS에서 구동 실패 시, 패키지 최신 버전 다운 <br/>
-(예시) <br/>
+[ 예시 ] <br/>
 `pip install numba --upgrade` <br/>
 `pip install matplotlib --upgrade` <br/>
