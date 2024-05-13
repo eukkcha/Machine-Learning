@@ -39,3 +39,9 @@
 [ 예시 ] <br/>
 `pip install numba --upgrade` <br/>
 `pip install matplotlib --upgrade` <br/>
+
+### Vscode에서 구동 오류 <br/>
+[오류 예시] <br/>
+`ModuleNotFoundError: No module named 'sklearn'` <br/>
+[도움 받은 글 1](https://medium.com/@uj07077/vscode-%EC%97%90%EC%84%9C%EB%A7%8C-%ED%8C%8C%EC%9D%B4%EC%8D%AC-%EB%AA%A8%EB%93%88%EC%9D%84-%EB%B6%88%EB%9F%AC%EC%98%A4%EC%A7%80-%EB%AA%BB%ED%95%A0%EB%95%8C-modulenotfounderror-3f1e063c6bcd) <br/>
+[도움 받은 글 2](https://juun42.tistory.com/22) <br/>
