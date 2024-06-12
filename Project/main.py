@@ -7,21 +7,21 @@ import librosa
 # 오디오 파일을 로드하고 MFCC 특성 추출
 def load_audio(file_path):
     audio, sr = librosa.load(file_path, sr=None)  # 오디오 파일 로드
-    mfcc = librosa.feature.mfcc(audio, sr, n_mfcc=24)  # MFCC 특성 추출
+    mfcc = librosa.feature.mfcc(audio, sr, n_mfcc=35, hop_length = 1024)  # MFCC 특성 추출
     return mfcc.T
 
 # 오디오 파일 경로 목록
 file_paths = [
-    'waveFile4th/규보_[cut_8sec].wav',
-    'waveFile4th/아빠_[cut_8sec].wav',
-    'waveFile4th/엄마_[cut_8sec].wav',
-    'waveFile4th/유성_[cut_8sec].wav',
-    'waveFile4th/유찬_[cut_8sec].wav',
-    'waveFile4th/이모_[cut_8sec].wav',
-    'waveFile4th/지윤_[cut_8sec].wav',
-    'waveFile4th/창희_[cut_8sec].wav',
-    'waveFile4th/할머니_[cut_8sec].wav',
-    'waveFile4th/형_[cut_8sec].wav'
+    'wavfile/규보_[cut_8sec].wav',
+    'wavfile/아빠_[cut_8sec].wav',
+    'wavfile/엄마_[cut_8sec].wav',
+    'wavfile/유성_[cut_8sec].wav',
+    'wavfile/유찬_[cut_8sec].wav',
+    'wavfile/이모_[cut_8sec].wav',
+    'wavfile/지윤_[cut_8sec].wav',
+    'wavfile/창희_[cut_8sec].wav',
+    'wavfile/할머니_[cut_8sec].wav',
+    'wavfile/형_[cut_8sec].wav'
 ]
 
 models = []  # GMM 모델들을 저장할 리스트
@@ -31,7 +31,7 @@ labels = []  # 각 파일의 라벨을 저장할 리스트
 # 각 오디오 파일에 대해 GMM 모델을 학습하고 특성을 저장
 for i, file_path in enumerate(file_paths):
     mfcc_features = load_audio(file_path)  # MFCC 특성 추출
-    gmm = GaussianMixture(n_components=2, covariance_type='diag')  # GMM 모델 초기화
+    gmm = GaussianMixture(n_components=2, covariance_type='diag', random_state = 0)  # GMM 모델 초기화
     gmm.fit(mfcc_features)  # GMM 모델 학습
     models.append(gmm)  # 학습된 GMM 모델 저장
     all_features.append(mfcc_features)  # 추출된 MFCC 특성 저장
@@ -42,16 +42,16 @@ labels = np.array(labels)  # 라벨을 배열로 변환
 
 # 테스트 음성 파일 경로 목록
 test_file_paths = [
-    'waveFile4th/규보_[cut_3sec].wav',
-    'waveFile4th/아빠_[cut_3sec].wav',
-    'waveFile4th/엄마_[cut_3sec].wav',
-    'waveFile4th/유성_[cut_3sec].wav',
-    'waveFile4th/유찬_[cut_3sec].wav',
-    'waveFile4th/이모_[cut_3sec].wav',
-    'waveFile4th/지윤_[cut_3sec].wav',
-    'waveFile4th/창희_[cut_3sec].wav',
-    'waveFile4th/할머니_[cut_3sec].wav',
-    'waveFile4th/형_[cut_3sec].wav'
+    'wavfile/규보_[cut_3sec].wav',
+    'wavfile/아빠_[cut_3sec].wav',
+    'wavfile/엄마_[cut_3sec].wav',
+    'wavfile/유성_[cut_3sec].wav',
+    'wavfile/유찬_[cut_3sec].wav',
+    'wavfile/이모_[cut_3sec].wav',
+    'wavfile/지윤_[cut_3sec].wav',
+    'wavfile/창희_[cut_3sec].wav',
+    'wavfile/할머니_[cut_3sec].wav',
+    'wavfile/형_[cut_3sec].wav'
 ]
 
 # 혼돈 행렬 초기화
