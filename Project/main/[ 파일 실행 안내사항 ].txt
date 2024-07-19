@@ -1,0 +1,122 @@
+[ 파일 실행 안내사항 ]
+각 모델 메인 실행파일
+GMM.py
+SVM.py
+
+완성된 모델을 PCA 시각화 분석하기 위한 파일
+GMMmodelCheck.py
+SVMmodelCheck.py
+
+4가지 테스트 시, 각 테스트마다 파일 경로 변경하기
+wav1 wav2 wav3 wav4 테스트 할 때마다 파일경로 입력해서 수정하기
+
+1. wav1
+file_paths = [
+    "wav1/규보1.wav",
+    "wav1/아빠1.wav",
+    "wav1/엄마1.wav",
+    "wav1/유상1.wav",
+    "wav1/유성1.wav",
+    "wav1/유찬1.wav",
+    "wav1/이모1.wav",
+    "wav1/지윤1.wav",
+    "wav1/창희1.wav",
+    "wav1/할머니1.wav"
+]
+
+test_file_paths = [
+    "wav1/규보234.wav",
+    "wav1/아빠234.wav",
+    "wav1/엄마234.wav",
+    "wav1/유상234.wav",
+    "wav1/유성234.wav",
+    "wav1/유찬234.wav",
+    "wav1/이모234.wav",
+    "wav1/지윤234.wav",
+    "wav1/창희234.wav",
+    "wav1/할머니234.wav"
+]
+
+
+2. wav2
+file_paths = [
+    "wav2/규보2.wav",
+    "wav2/아빠2.wav",
+    "wav2/엄마2.wav",
+    "wav2/유상2.wav",
+    "wav2/유성2.wav",
+    "wav2/유찬2.wav",
+    "wav2/이모2.wav",
+    "wav2/지윤2.wav",
+    "wav2/창희2.wav",
+    "wav2/할머니2.wav"
+]
+
+test_file_paths = [
+    "wav2/규보134.wav",
+    "wav2/아빠134.wav",
+    "wav2/엄마134.wav",
+    "wav2/유상134.wav",
+    "wav2/유성134.wav",
+    "wav2/유찬134.wav",
+    "wav2/이모134.wav",
+    "wav2/지윤134.wav",
+    "wav2/창희134.wav",
+    "wav2/할머니134.wav"
+]
+
+
+3.wav3
+file_paths = [
+    "wav3/규보3.wav",
+    "wav3/아빠3.wav",
+    "wav3/엄마3.wav",
+    "wav3/유상3.wav",
+    "wav3/유성3.wav",
+    "wav3/유찬3.wav",
+    "wav3/이모3.wav",
+    "wav3/지윤3.wav",
+    "wav3/창희3.wav",
+    "wav3/할머니3.wav"
+]
+
+test_file_paths = [
+    "wav3/규보124.wav",
+    "wav3/아빠124.wav",
+    "wav3/엄마124.wav",
+    "wav3/유상124.wav",
+    "wav3/유성124.wav",
+    "wav3/유찬124.wav",
+    "wav3/이모124.wav",
+    "wav3/지윤124.wav",
+    "wav3/창희124.wav",
+    "wav3/할머니124.wav"
+]
+
+
+4. wav4
+file_paths = [
+    "wav4/규보4.wav",
+    "wav4/아빠4.wav",
+    "wav4/엄마4.wav",
+    "wav4/유상4.wav",
+    "wav4/유성4.wav",
+    "wav4/유찬4.wav",
+    "wav4/이모4.wav",
+    "wav4/지윤4.wav",
+    "wav4/창희4.wav",
+    "wav4/할머니4.wav"
+]
+
+test_file_paths = [
+    "wav4/규보123.wav",
+    "wav4/아빠123.wav",
+    "wav4/엄마123.wav",
+    "wav4/유상123.wav",
+    "wav4/유성123.wav",
+    "wav4/유찬123.wav",
+    "wav4/이모123.wav",
+    "wav4/지윤123.wav",
+    "wav4/창희123.wav",
+    "wav4/할머니123.wav"
+]
